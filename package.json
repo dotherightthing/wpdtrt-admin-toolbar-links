@@ -1,0 +1,59 @@
+{
+  "private": true,
+  "name": "wpdtrt-admin-toolbar-links",
+  "version": "0.1.0",
+  "description": "Add links to the toolbar at the top of WordPress admin screens.",
+  "main": "wpdtrt-admin-toolbar-links.php",
+  "person": {
+    "name": "Dan Smith",
+    "email": "dev@dotherightthing.co.nz",
+    "url": "https://profiles.wordpress.org/dotherightthingnz"
+  },
+  "contributors": [
+    {
+      "name": "Dan Smith",
+      "email": "dev@dotherightthing.co.nz",
+      "url": "https://profiles.wordpress.org/dotherightthingnz"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/dotherightthing/wpdtrt-admin-toolbar-links/issues"
+  },
+  "keywords": ["linkstoolbaradmin"],
+  "devDependencies": {
+    "cypress": "^3.4.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-chai-friendly": "^0.4.1",
+    "eslint-plugin-cypress": "^2.0.1",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-json": "^1.2.0",
+    "gulp": "^3.9.1",
+    "normalize-html-whitespace": "^0.2.0",
+    "tenon-node": "^0.4.1"
+  },
+  "workspaces": [
+    "vendor/dotherightthing/wpdtrt-plugin-boilerplate/"
+  ],
+  "scripts": {
+    "build": "gulp --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./",
+    "cypress:open": "cypress open",
+    "install_deps": "gulp install_dependencies --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./ && gulp wpunit_install --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./",
+    "package": "gulp release --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./",
+    "lint": "gulp lint --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./",
+    "test": "gulp wpunit_run --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./",
+    "version": "gulp version --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./",
+    "watch": "gulp compile --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./ && gulp watch --gulpfile ./vendor/dotherightthing/wpdtrt-plugin-boilerplate/gulpfile.js --cwd ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dotherightthing/wpdtrt-admin-toolbar-links"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ie >= 11"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/dotherightthing/wpdtrt-admin-toolbar-links",
+  "srcDir": "/Volumes/DanBackup/Websites/wpdtrt-admin-toolbar-links"
+}

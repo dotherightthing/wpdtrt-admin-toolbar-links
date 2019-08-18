@@ -1,0 +1,51 @@
+{
+    "name": "dotherightthing/wpdtrt-admin-toolbar-links",
+    "description": "Add links to the toolbar at the top of WordPress admin screens.",
+    "type": "library",
+    "keywords": ["linkstoolbaradmin"],
+    "license": "ISC",
+    "authors": [
+        {
+            "name": "Dan Smith",
+            "email": "dev@dotherightthing.co.nz",
+            "homepage": "https://github.com/dotherightthing/wpdtrt-admin-toolbar-links",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "support@dotherightthing.co.nz",
+        "issues": "https://github.com/dotherightthing/wpdtrt-admin-toolbar-links/issues",
+        "source": "https://github.com/dotherightthing/wpdtrt-admin-toolbar-links",
+        "wiki": "https://github.com/dotherightthing/wpdtrt-admin-toolbar-links/wiki"
+    },
+    "require": {
+        "dotherightthing/wpdtrt-plugin-boilerplate": "^1.5.10"
+    },
+    "require-dev": {
+        "phpdocumentor/phpdocumentor": "2.9.0",
+        "phpunit/phpunit": "^5.7",
+        "psy/psysh" : "~0.6",
+        "wp-cli/wp-cli" : "~0.22",
+        "wp-coding-standards/wpcs": "^0.14.1",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories":[
+        {
+            "type": "vcs",
+            "url": "https://github.com/dotherightthing/wpdtrt-plugin-boilerplate"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/dotherightthing/wpdtrt-debug"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/dotherightthing/tgm-plugin-activation"
+        }
+    ],
+    "config": {
+        "vendor-dir": "vendor"
+    }
+}

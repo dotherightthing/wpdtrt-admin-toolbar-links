@@ -1,0 +1,24 @@
+//
+// Styles for the public front-end
+//
+// @package     WPDTRT_Admin_Toolbar_Links
+// @version 	0.1.0
+// @since       0.8.7 DTRT WordPress Plugin Boilerplate Generator
+//
+
+@import 'vendor/dotherightthing/wpdtrt-plugin-boilerplate/scss/variables';
+@import 'vendor/dotherightthing/wpdtrt-plugin-boilerplate/scss/extends';
+@import 'variables';
+@import 'extends';
+
+// -------------------------------------------------------------------
+// Styles
+// -------------------------------------------------------------------
+
+.wpdtrt-admin-toolbar-links--demo {
+    background-color: $wpdtrt-admin-toolbar-links-bg-color--demo;
+}
+
+// -------------------------------------------------------------------
+// Media Queries
+// -------------------------------------------------------------------
