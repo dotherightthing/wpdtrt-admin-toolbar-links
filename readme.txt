@@ -24,24 +24,11 @@ Add links to the toolbar at the top of WordPress admin screens.
 
 == Frequently Asked Questions ==
 
-= How do I use the widget? =
+= How do I use this? =
 
-One or more widgets can be displayed within one or more sidebars:
+Please read the documentation:
 
-1. Locate the widget: Appearance > Widgets > *DTRT Admin Toolbar Links Widget*
-2. Drag and drop the widget into one of your sidebars
-3. Add a *Title*
-4. Specify options
-
-= How do I use the shortcode? =
-
-```
-<!-- within the editor -->
-[wpdtrt_admin_toolbar_links option="value"]
-
-// in a PHP template, as a template tag
-<?php echo do_shortcode( '[wpdtrt_admin_toolbar_links option="value"]' ); ?>
-```
+1. [Add links from composer.json](https://github.com/dotherightthing/wpdtrt-admin-toolbar-links/wiki/Add-links-from-composer.json)
 
 == Screenshots ==
 
