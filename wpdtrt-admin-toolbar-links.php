@@ -115,10 +115,6 @@ if ( is_admin() ) {
 // sub classes, not loaded via PSR-4.
 // remove the includes you don't need, edit the files you do need.
 require_once WPDTRT_ADMIN_TOOLBAR_LINKS_PATH . 'src/class-wpdtrt-admin-toolbar-links-plugin.php';
-require_once WPDTRT_ADMIN_TOOLBAR_LINKS_PATH . 'src/class-wpdtrt-admin-toolbar-links-rewrite.php';
-require_once WPDTRT_ADMIN_TOOLBAR_LINKS_PATH . 'src/class-wpdtrt-admin-toolbar-links-shortcode.php';
-require_once WPDTRT_ADMIN_TOOLBAR_LINKS_PATH . 'src/class-wpdtrt-admin-toolbar-links-taxonomy.php';
-require_once WPDTRT_ADMIN_TOOLBAR_LINKS_PATH . 'src/class-wpdtrt-admin-toolbar-links-widget.php';
 
 // log & trace helpers.
 global $debug;
@@ -139,9 +135,6 @@ $debug = new DoTheRightThing\WPDebug\Debug();
 register_activation_hook( dirname( __FILE__ ), 'wpdtrt_admin_toolbar_links_activate' );
 
 add_action( 'init', 'wpdtrt_admin_toolbar_links_plugin_init', 0 );
-// add_action( 'init', 'wpdtrt_admin_toolbar_links_shortcode_init', 100 );.
-// add_action( 'init', 'wpdtrt_admin_toolbar_links_taxonomy_init', 100 );.
-// add_action( 'widgets_init', 'wpdtrt_admin_toolbar_links_widget_init', 10 );.
 
 register_deactivation_hook( dirname( __FILE__ ), 'wpdtrt_admin_toolbar_links_deactivate' );
 
@@ -194,28 +187,14 @@ function wpdtrt_admin_toolbar_links_plugin_init() {
 	 *
 	 * @see https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Options:-Adding-global-options Options: Adding global options
 	 */
-	$plugin_options = array(
-		'pluginoption1' => array(
-			'type'  => 'text',
-			'label' => __( 'Field label', 'wpdtrt-admin-toolbar-links' ),
-			'size'  => 10,
-			'tip'   => __( 'Helper text', 'wpdtrt-admin-toolbar-links' ),
-		),
-	);
+	$plugin_options = array();
 
 	/**
 	 * Shortcode or Widget options
 	 *
 	 * @see https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Options:-Adding-shortcode-or-widget-options Options: Adding shortcode or widget options
 	 */
-	$instance_options = array(
-		'instanceoption1' => array(
-			'type'  => 'text',
-			'label' => __( 'Field label', 'wpdtrt-admin-toolbar-links' ),
-			'size'  => 10,
-			'tip'   => __( 'Helper text', 'wpdtrt-admin-toolbar-links' ),
-		),
-	);
+	$instance_options = array();
 
 	/**
 	 * UI Messages
@@ -264,140 +243,4 @@ function wpdtrt_admin_toolbar_links_plugin_init() {
 			'demo_shortcode_params' => $demo_shortcode_params,
 		)
 	);
-}
-
-/**
- * ===== Rewrite config =====
- */
-
-/**
- * Register Rewrite
- */
-function wpdtrt_admin_toolbar_links_rewrite_init() {
-
-	global $wpdtrt_admin_toolbar_links_plugin;
-
-	$wpdtrt_admin_toolbar_links_rewrite = new WPDTRT_Admin_Toolbar_Links_Rewrite(
-		array()
-	);
-}
-
-/**
- * ===== Shortcode config =====
- */
-
-/**
- * Register Shortcode
- */
-function wpdtrt_admin_toolbar_links_shortcode_init() {
-
-	global $wpdtrt_admin_toolbar_links_plugin;
-
-	$wpdtrt_admin_toolbar_links_shortcode = new WPDTRT_Admin_Toolbar_Links_Shortcode(
-		array(
-			'name'                      => 'wpdtrt_admin_toolbar_links_shortcode',
-			'plugin'                    => $wpdtrt_admin_toolbar_links_plugin,
-			'template'                  => 'admin-toolbar-links',
-			'selected_instance_options' => array(
-				'instanceoption1',
-			),
-		)
-	);
-}
-
-/**
- * ===== Taxonomy config =====
- */
-
-/**
- * Register Taxonomy
- *
- * @return object Taxonomy/
- */
-function wpdtrt_admin_toolbar_links_taxonomy_init() {
-
-	global $wpdtrt_admin_toolbar_links_plugin;
-
-	$wpdtrt_admin_toolbar_links_taxonomy = new WPDTRT_Admin_Toolbar_Links_Taxonomy(
-		array(
-			'name'                      => 'wpdtrt_admin_toolbar_links_things',
-			'plugin'                    => $wpdtrt_admin_toolbar_links_plugin,
-			'selected_instance_options' => array(
-				'instanceoption1',
-			),
-			'taxonomy_options'          => array(
-				'option1' => array(
-					'type'              => 'text',
-					'label'             => esc_html__( 'Option 1', 'wpdtrt-admin-toolbar-links' ),
-					'admin_table'       => true,
-					'admin_table_label' => esc_html__( '1', 'wpdtrt-admin-toolbar-links ' ),
-					'admin_table_sort'  => true,
-					'tip'               => 'Enter something',
-					'todo_condition'    => 'foo !== "bar"',
-				),
-			),
-			'labels'                    => array(
-				'slug'                       => 'wpdtrt_admin_toolbar_links_thing',
-				'description'                => __( 'Things', 'wpdtrt-admin-toolbar-links' ),
-				'posttype'                   => 'post',
-				'name'                       => __( 'Things', 'taxonomy general name' ),
-				'singular_name'              => _x( 'Thing', 'taxonomy singular name' ),
-				'menu_name'                  => __( 'Things', 'wpdtrt-admin-toolbar-links' ),
-				'all_items'                  => __( 'All Things', 'wpdtrt-admin-toolbar-links' ),
-				'add_new_item'               => __( 'Add New Thing', 'wpdtrt-admin-toolbar-links' ),
-				'edit_item'                  => __( 'Edit Thing', 'wpdtrt-admin-toolbar-links' ),
-				'view_item'                  => __( 'View Thing', 'wpdtrt-admin-toolbar-links' ),
-				'update_item'                => __( 'Update Thing', 'wpdtrt-admin-toolbar-links' ),
-				'new_item_name'              => __( 'New Thing Name', 'wpdtrt-admin-toolbar-links' ),
-				'parent_item'                => __( 'Parent Thing', 'wpdtrt-admin-toolbar-links' ),
-				'parent_item_colon'          => __( 'Parent Thing:', 'wpdtrt-admin-toolbar-links' ),
-				'search_items'               => __( 'Search Things', 'wpdtrt-admin-toolbar-links' ),
-				'popular_items'              => __( 'Popular Things', 'wpdtrt-admin-toolbar-links' ),
-				'separate_items_with_commas' => __( 'Separate Things with commas', 'wpdtrt-admin-toolbar-links' ),
-				'add_or_remove_items'        => __( 'Add or remove Things', 'wpdtrt-admin-toolbar-links' ),
-				'choose_from_most_used'      => __( 'Choose from most used Things', 'wpdtrt-admin-toolbar-links' ),
-				'not_found'                  => __( 'No Things found', 'wpdtrt-admin-toolbar-links' ),
-			),
-		)
-	);
-
-	// return a reference for unit testing.
-	return $wpdtrt_admin_toolbar_links_taxonomy;
-}
-
-/**
- * ===== Widget config =====
- */
-
-/**
- * Register a WordPress widget, passing in an instance of our custom widget class
- * The plugin does not require registration, but widgets and shortcodes do.
- * Note: widget_init fires before init, unless init has a priority of 0
- *
- * @uses        ../../../../wp-includes/widgets.php
- * @see         https://codex.wordpress.org/Function_Reference/register_widget#Example
- * @see         https://wp-mix.com/wordpress-widget_init-not-working/
- * @see         https://codex.wordpress.org/Plugin_API/Action_Reference
- * @uses        https://github.com/dotherightthing/wpdtrt/tree/master/library/sidebars.php
- * @todo        Add form field parameters to the options array
- * @todo        Investigate the 'classname' option
- */
-function wpdtrt_admin_toolbar_links_widget_init() {
-
-	global $wpdtrt_admin_toolbar_links_plugin;
-
-	$wpdtrt_admin_toolbar_links_widget = new WPDTRT_Admin_Toolbar_Links_Widget(
-		array(
-			'name'                      => 'wpdtrt_admin_toolbar_links_widget',
-			'title'                     => __( 'DTRT Admin Toolbar Links Widget', 'wpdtrt-admin-toolbar-links' ),
-			'description'               => __( 'Add links to the toolbar at the top of WordPress admin screens.', 'wpdtrt-admin-toolbar-links' ),
-			'plugin'                    => $wpdtrt_admin_toolbar_links_plugin,
-			'template'                  => 'admin-toolbar-links',
-			'selected_instance_options' => array(
-				'instanceoption1',
-			),
-		)
-	);
-
-	register_widget( $wpdtrt_admin_toolbar_links_widget );
 }
