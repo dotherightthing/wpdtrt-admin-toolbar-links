@@ -216,7 +216,7 @@ class WPDTRT_Admin_Toolbar_Links_Plugin extends DoTheRightThing\WPDTRT_Plugin_Bo
 
 		$source_args = array(
 			'id'     => "wpdtrt-admin-toolbar-links_{$hostname_lc}-source",
-			'title'  => "{$hostname} source code",
+			'title'  => "{$hostname} Source Code",
 			'href'   => $source_url,
 			'parent' => "wpdtrt-admin-toolbar-links_{$hostname_lc}",
 			'meta'  => array(
