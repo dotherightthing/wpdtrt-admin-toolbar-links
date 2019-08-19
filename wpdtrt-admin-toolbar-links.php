@@ -139,9 +139,9 @@ $debug = new DoTheRightThing\WPDebug\Debug();
 register_activation_hook( dirname( __FILE__ ), 'wpdtrt_admin_toolbar_links_activate' );
 
 add_action( 'init', 'wpdtrt_admin_toolbar_links_plugin_init', 0 );
-add_action( 'init', 'wpdtrt_admin_toolbar_links_shortcode_init', 100 );
-add_action( 'init', 'wpdtrt_admin_toolbar_links_taxonomy_init', 100 );
-add_action( 'widgets_init', 'wpdtrt_admin_toolbar_links_widget_init', 10 );
+// add_action( 'init', 'wpdtrt_admin_toolbar_links_shortcode_init', 100 );.
+// add_action( 'init', 'wpdtrt_admin_toolbar_links_taxonomy_init', 100 );.
+// add_action( 'widgets_init', 'wpdtrt_admin_toolbar_links_widget_init', 10 );.
 
 register_deactivation_hook( dirname( __FILE__ ), 'wpdtrt_admin_toolbar_links_deactivate' );
 
