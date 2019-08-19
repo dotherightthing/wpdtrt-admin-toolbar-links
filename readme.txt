@@ -32,8 +32,7 @@ Please read the documentation:
 
 == Screenshots ==
 
-1. The caption for ./images/screenshot-1.(png|jpg|jpeg|gif)
-2. The caption for ./images/screenshot-2.(png|jpg|jpeg|gif)
+1. Links menu ./images/screenshot-1.png
 
 == Changelog ==
 
